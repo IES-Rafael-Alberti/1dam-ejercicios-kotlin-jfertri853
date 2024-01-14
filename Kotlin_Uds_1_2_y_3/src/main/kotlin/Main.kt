@@ -6,8 +6,8 @@ fun showCompleteMenu() {
 fun completeMenu(option: Int) {
     when (option) {
         1 -> ud1Menu()
-        2 -> ud2Menu()
-        3 -> ud3Menu()
+//        2 -> ud2Menu()
+//        3 -> ud3Menu()
         else -> println("Cerrando aplicación...")
     }
 }
