@@ -227,3 +227,35 @@ fun ud3ListasyTuplasEj8() {
         println("No es palíndromo")
     }
 }
+
+
+/*Escribir un programa que pida al usuario una palabra
+y muestre por pantalla el número de veces que contiene cada vocal.*/
+
+fun countVowelRepetition(letters: List<Char>, word: String): ArrayList<String> {
+    /**
+     *
+     */
+    val vowelsCounting: ArrayList<String> = ArrayList()
+
+    for (letter in letters) {
+        val count = word.count {it == letter}
+        if (count > 0) {
+            vowelsCounting.add("$letter se repite $count veces en la palabra $word")
+        }
+    }
+
+    return vowelsCounting
+}
+
+
+fun ud3ListasyTuplasEj9() {
+    print("Introduce una palabra: ")
+    val word = readln()
+
+    val vowelCount = countVowelRepetition(letters = listOf('a', 'e', 'i', 'o', 'u'), word)
+
+    for (i in vowelCount) {
+        println(i)
+    }
+}
