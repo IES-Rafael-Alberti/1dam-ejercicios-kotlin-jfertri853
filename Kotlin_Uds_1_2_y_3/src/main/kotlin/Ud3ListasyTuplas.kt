@@ -240,7 +240,9 @@ fun countVowelRepetition(letters: List<Char>, word: String): ArrayList<String> {
 
     for (letter in letters) {
         val count = word.count {it == letter}
-        if (count > 0) {
+        if (count == 1) {
+            vowelsCounting.add("$letter se repite $count vez en la palabra $word")
+        } else if (count > 1) {
             vowelsCounting.add("$letter se repite $count veces en la palabra $word")
         }
     }
@@ -251,7 +253,7 @@ fun countVowelRepetition(letters: List<Char>, word: String): ArrayList<String> {
 
 fun ud3ListasyTuplasEj9() {
     print("Introduce una palabra: ")
-    val word = readln()
+    val word = readln().lowercase()
 
     val vowelCount = countVowelRepetition(letters = listOf('a', 'e', 'i', 'o', 'u'), word)
 
