@@ -336,7 +336,7 @@ fun ud3ConjuntosMenu() {
 
 fun ud3ConjuntosSelection(option: Int) {
     when (option) {
-//        1 -> ud3ConjuntosEj1()
+        1 -> ud3ConjuntosEj1()
 //        2 -> ud3ConjuntosEj2()
 //        3 -> ud3ConjuntosEj3()
 //        4 -> ud3ConjuntosEj4()

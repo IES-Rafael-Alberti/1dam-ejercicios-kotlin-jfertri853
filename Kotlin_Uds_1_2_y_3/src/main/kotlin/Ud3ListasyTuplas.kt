@@ -5,10 +5,10 @@ import kotlin.math.pow
 /*Escribir un programa que pregunte al usuario los números ganadores de la lotería primitiva,
 los almacene en una lista y los muestre por pantalla ordenados de menor a mayor.*/
 
+/**
+ *
+ */
 fun enterLotteryNumber(ticket: List<Int>): Int {
-    /**
-     *
-     */
     print("Introduce un número de lotería (1-49)")
     val num = askForNumber()
 
@@ -21,10 +21,11 @@ fun enterLotteryNumber(ticket: List<Int>): Int {
     return num
 }
 
+
+/**
+ *
+ */
 fun enterRefundNumber(): Int {
-    /**
-     *
-     */
     print("Introduce el número de reintegro (0-9): ")
     val num = askForNumber()
 
@@ -35,10 +36,11 @@ fun enterRefundNumber(): Int {
     return num
 }
 
+
+/**
+ *
+ */
 fun createTicket(): MutableList<Int> {
-    /**
-     *
-     */
     val ticket = mutableListOf<Int>()
     var counter = 0
 
@@ -64,10 +66,11 @@ fun createTicket(): MutableList<Int> {
     return ticket
 }
 
+
+/**
+ *
+ */
 fun orderTicket(ticket: MutableList<Int>): List<Int> {
-    /**
-     *
-     */
     var total = ticket.size - 2
     var exchanges: Int? = null
     var counter = 0
@@ -91,10 +94,11 @@ fun orderTicket(ticket: MutableList<Int>): List<Int> {
     return ticket
 }
 
+
+/**
+ *
+ */
 fun showTicket(ticket: List<Int>) {
-    /**
-     *
-     */
     println("Tu boleto:")
     for ((position, num) in ticket.withIndex()) {
         if (position < 5) {
@@ -105,6 +109,7 @@ fun showTicket(ticket: List<Int>) {
     }
     println("Reintegro: ${ticket[6]}")
 }
+
 
 fun ud3ListasyTuplasEj4() {
     val boletoGanador = orderTicket(createTicket())
@@ -117,27 +122,27 @@ fun ud3ListasyTuplasEj4() {
 pregunte al usuario la nota que ha sacado en cada asignatura y elimine de la lista las asignaturas aprobadas.
 Al final el programa debe mostrar por pantalla las asignaturas que el usuario tiene que repetir.*/
 
+/**
+ *
+ */
 fun askForGrade(subject: String): Double {
-    /**
-     *
-     */
     print("Introduce la nota de $subject: ")
     return readln().toDouble()
 }
 
 
+/**
+ *
+ */
 fun validateGrade(nota: Double): Boolean {
-    /**
-     *
-     */
     return nota in 0.0..10.0
 }
 
 
+/**
+ *
+ */
 fun putGrades(subjects: List<String>): List<Double> {
-    /**
-     *
-     */
     val grades = mutableListOf<Double>()
     for (pos in subjects.indices) {
         val nota = askForGrade(subjects[pos])
@@ -151,20 +156,20 @@ fun putGrades(subjects: List<String>): List<Double> {
 }
 
 
+/**
+ *
+ */
 fun showList(subjects: List<String>) {
-    /**
-     *
-     */
     for (pos in subjects.indices) {
         print(if (pos != subjects.size - 1) "${subjects[pos]}, " else subjects[pos])
     }
 }
 
 
+/**
+ *
+ */
 fun deletePassedSubjects(subjects: MutableList<String>, grades: List<Double>): MutableList<String> {
-    /**
-     *
-     */
     val indicesToDelete = mutableListOf<Int>()
 
     for (pos in subjects.indices) {
@@ -203,20 +208,20 @@ fun ud3ListasyTuplasEj6() {
 
 /*Escribir un programa que pida al usuario una palabra y muestre por pantalla si es un palíndromo.*/
 
+/**
+ *
+ */
 fun askForWord(): List<Char> {
-    /**
-     *
-     */
     print("Introduce una palabra: ")
     val word = readln()
     return word.toList()
 }
 
 
+/**
+ *
+ */
 fun isPalindrome(word: List<Char>, reversedWord: List<Char>): Boolean {
-    /**
-     *
-     */
     return word == reversedWord
 }
 
@@ -236,10 +241,10 @@ fun ud3ListasyTuplasEj8() {
 /*Escribir un programa que pida al usuario una palabra
 y muestre por pantalla el número de veces que contiene cada vocal.*/
 
+/**
+ *
+ */
 fun countVowelRepetition(letters: List<Char>, word: String): ArrayList<String> {
-    /**
-     *
-     */
     val vowelsCounting: ArrayList<String> = ArrayList()
 
     for (letter in letters) {
@@ -270,18 +275,18 @@ fun ud3ListasyTuplasEj9() {
 /*Escribir un programa que almacene en una lista los siguientes precios: 50, 75, 46, 22, 80, 65, 8
 y muestre por pantalla el menor y el mayor de los precios.*/
 
+/**
+ *
+ */
 fun orderNums(nums: Array<Int>, operation: (Array<Int>) -> Array<Int>): Array<Int> {
-    /**
-     *
-     */
     return operation(nums)
 }
 
 
+/**
+ *
+ */
 fun showIntArray(myArray: Array<Int>) {
-    /**
-     *
-     */
     for (element in myArray) {
         print("$element, ")
     }
@@ -311,10 +316,10 @@ fun ud3ListasyTuplasEj10() {
 /*Escribir un programa que pregunte por una muestra de números, separados por comas,
 los guarde en una lista y muestre por pantalla su media y desviación típica.*/
 
+/**
+ *
+ */
 fun askForDoubleList(): DoubleArray {
-    /**
-     *
-     */
     val nums = arrayListOf<Double>()
 
     print("Introduce numeros separados por coma: ")
@@ -333,10 +338,10 @@ fun askForDoubleList(): DoubleArray {
 }
 
 
+/**
+ *
+ */
 fun summation(nums: DoubleArray): Double {
-    /**
-     *
-     */
     var summ = 0.0
     for (num in nums) {
         summ += num
@@ -346,34 +351,34 @@ fun summation(nums: DoubleArray): Double {
 }
 
 
+/**
+ *
+ */
 fun calculateAverage(nums:DoubleArray): Double {
-    /**
-     *
-     */
     return summation(nums) / nums.size
 }
 
 
+/**
+ *
+ */
 fun calculateDistanceBetweenNums(num: Double, average: Double): Double {
-    /**
-     *
-     */
     return abs(average - num)
 }
 
 
+/**
+ *
+ */
 fun raiseDoubleToDouble(num: Double, raiseNum: Double): Double {
-    /**
-     *
-     */
     return num.pow(raiseNum)
 }
 
 
+/**
+ *
+ */
 fun calculateStandardDeviation(nums: DoubleArray, average: Double): Double {
-    /**
-     *
-     */
     val distances = DoubleArray(size = nums.size) {
         raiseDoubleToDouble(calculateDistanceBetweenNums(nums[it], average), 2.0)
     }
@@ -384,10 +389,10 @@ fun calculateStandardDeviation(nums: DoubleArray, average: Double): Double {
 }
 
 
+/**
+ *
+ */
 fun showInfo(nums: DoubleArray, average: Double, deviation: Double) {
-    /**
-     *
-     */
     println("Lista -> ${nums.joinToString()}")
     println("MEDIA -> %.2f".format(average))
     println("DESVIACIÓN TÍPICA -> %.2f".format(deviation))

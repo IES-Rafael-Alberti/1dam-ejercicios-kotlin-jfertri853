@@ -7,10 +7,10 @@ Manzana	0.80
 Pera	0.85
 Naranja	0.70*/
 
+/**
+ *
+ */
 fun calculatePrice(fruits: Map<String, Double>, fruit: String, weight: Double): Any {
-    /**
-     *
-     */
     return if (fruit in fruits) {
         (fruits[fruit]!! * weight)
     } else {

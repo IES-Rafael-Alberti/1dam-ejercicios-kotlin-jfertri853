@@ -3,19 +3,19 @@ pregunte al usuario por la contraseña e imprima por pantalla si la contraseña
 introducida por el usuario coincide con la guardada en la variable sin tener en cuenta
 mayúsculas y minúsculas. */
 
+/**
+ *
+ */
 fun insertPassword (): String {
-    /**
-     *
-     */
     print("Introduce su contraseña: ")
     return readln()
 }
 
 
+/**
+ *
+ */
 fun verifyLogin (acceso: Boolean) {
-    /**
-     *
-     */
     if (acceso) {
         println("Contraseña correcta, puedes entrar")
     } else {
@@ -24,10 +24,10 @@ fun verifyLogin (acceso: Boolean) {
 }
 
 
+/**
+ *
+ */
 fun compareTwoStrings(verifiedPass: String, insertedPass: String): Boolean {
-    /**
-     *
-     */
     return (verifiedPass.uppercase() == insertedPass.uppercase())
 }
 
@@ -41,10 +41,10 @@ fun ud2CondicionesEj2 () {
 /* Escribir un programa que pida al usuario dos números y muestre por pantalla su división.
 Si el divisor es cero el programa debe mostrar un error. */
 
+/**
+ *
+ */
 fun divide (dividend: Double, divider: Double): Double? {
-    /**
-     *
-     */
     if (divider == 0.0) {
         println("** ERROR ** - el divisor no puede ser 0")
         return null
@@ -54,10 +54,10 @@ fun divide (dividend: Double, divider: Double): Double? {
 }
 
 
+/**
+ *
+ */
 fun createDivision (): DoubleArray {
-    /**
-     *
-     */
     print("Introduce el dividendo: ")
     val dividend = readln().toDouble()
 
@@ -80,10 +80,10 @@ un nombre posterior a la N y el grupo B por el resto.
 Escribir un programa que pregunte al usuario su nombre y sexo,
 y muestre por pantalla el grupo que le corresponde. */
 
+/**
+ *
+ */
 fun fillOutStudentForm (): List<String> {
-    /**
-     *
-     */
     print("Introduce el nombre del alumno: ")
     val name = readln()
 
@@ -99,10 +99,10 @@ fun fillOutStudentForm (): List<String> {
 }
 
 
+/**
+ *
+ */
 fun assignToGroup(name: String, gender: String): String {
-    /**
-     *
-     */
     val group = if ((name[0].uppercase() < "M" && gender == "F") || (name[0].uppercase() > "N" && gender == "M")) {
         "Grupo A"
     } else {
@@ -113,10 +113,10 @@ fun assignToGroup(name: String, gender: String): String {
 }
 
 
+/**
+ *
+ */
 fun showStudentAndGroup(name: String, gender:String, group:String) {
-    /**
-     *
-     */
     if (gender == "F") {
         println("La alumna $name pertenece al $group")
     } else {
@@ -147,10 +147,10 @@ Meritorio	0.6 o más
 Escribir un programa que lea la puntuación del usuario e indique su nivel de rendimiento,
 así como la cantidad de dinero que recibirá el usuario. */
 
+/**
+ *
+ */
 fun askForEmployeeScore (): Double {
-    /**
-     *
-     */
     print("Introduce la puntuación del empleado: ")
     var score = readln().toDouble()
 
@@ -164,10 +164,10 @@ fun askForEmployeeScore (): Double {
 }
 
 
+/**
+ *
+ */
 fun calculateEmployeePerformance (score: Double): String {
-    /**
-     *
-     */
     val performance = when {
         score == 0.0 -> "Inaceptable"
         score == 0.4 -> "Aceptable"
@@ -179,10 +179,10 @@ fun calculateEmployeePerformance (score: Double): String {
 }
 
 
+/**
+ *
+ */
 fun calculateBonusPayment (score: Double): String {
-    /**
-     *
-     */
     return "%.2f".format(score * 2400.0)
 }
 
@@ -205,10 +205,10 @@ y en función de su respuesta le muestre un menú con los ingredientes disponibl
 Solo se puede eligir un ingrediente además de la mozzarella y el tomate que están en todas la pizzas.
 Al final se debe mostrar por pantalla si la pizza elegida es vegetariana o no y todos los ingredientes que lleva.*/
 
+/**
+ *
+ */
 fun printTicket (type: String, pizza: List<String>) {
-    /**
-     *
-     */
     print("Su pizza ${type.lowercase()} de ")
     for (i in pizza.indices) {
         if (i + 1 == pizza.size) {
@@ -220,18 +220,18 @@ fun printTicket (type: String, pizza: List<String>) {
 }
 
 
+/**
+ *
+ */
 fun createPizza (ingredient: String): List<String> {
-    /**
-     *
-     */
     return listOf("tomate", "mozzarella", ingredient)
 }
 
 
+/**
+ *
+ */
 fun selectIngredientList (pizzaType: String): List<String> {
-    /**
-     *
-     */
     val ingredients = if (pizzaType == "VEGETAL") {
         listOf("pimiento", "tofu")
     } else {
@@ -242,10 +242,10 @@ fun selectIngredientList (pizzaType: String): List<String> {
 }
 
 
+/**
+ *
+ */
 fun chooseIngredients (ingredients: List<String>): String {
-    /**
-     *
-     */
     println("Elige el ingrediente de tu pizza")
     for (ingredient in ingredients) {
         println("-> $ingredient")
@@ -263,10 +263,10 @@ fun chooseIngredients (ingredients: List<String>): String {
 }
 
 
+/**
+ *
+ */
 fun choosePizzaType (): String {
-    /**
-     *
-     */
     print("pizza vegetal o con carne? ")
     var type = readln().replace(" ", "").uppercase()
     while (type != "VEGETAL" && type != "CONCARNE") {

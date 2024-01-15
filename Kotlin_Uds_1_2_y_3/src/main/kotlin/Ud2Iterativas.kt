@@ -1,10 +1,10 @@
 /*Escribir un programa que pregunte al usuario su edad y muestre por pantalla todos los años que ha cumplido
 (desde 1 hasta su edad).*/
 
+/**
+ *
+ */
 fun verifyAge (min: Int, max: Int, age: Int): Int {
-    /**
-     *
-     */
     when {
         age < min -> {throw NumberFormatException("No puedes tener menos de $min años")}
         age > max -> {throw NumberFormatException("No tienes más de $max años, no mientas")}
@@ -13,19 +13,19 @@ fun verifyAge (min: Int, max: Int, age: Int): Int {
 }
 
 
+/**
+ *
+ */
 fun askForNumber (): Int {
-    /**
-     *
-     */
     print(": ")
     return readln().toInt()
 }
 
 
+/**
+ *
+ */
 fun ageCount(age: Int) {
-    /**
-     *
-     */
     val count = Array(size = age + 1){it}
     for (number in count) {
         when (number) {
@@ -57,18 +57,18 @@ fun ud2IterativasEj2() {
 /*Escribir un programa que pida al usuario un número entero positivo y muestre por pantalla la cuenta atrás
 desde ese número hasta cero separados por comas.*/
 
+/**
+ *
+ */
 fun isPositive(number: Int): Boolean {
-    /**
-     *
-     */
     return number >= 0
 }
 
 
+/**
+ *
+ */
 fun countdown(number: Int) {
-    /**
-     *
-     */
     val count = Array(size = number + 1){number - it}
     for (i in count.indices) {
         when (count[i]) {
@@ -103,10 +103,10 @@ el de más abajo, de altura el número introducido.
 ***
 **** */
 
+/**
+ *
+ */
 fun createPyramidLayer(layerNum: Int): String {
-    /**
-     *
-     */
     var layer = ""
     for (i in 1..layerNum) {
         layer += "*"
@@ -117,10 +117,10 @@ fun createPyramidLayer(layerNum: Int): String {
 }
 
 
+/**
+ *
+ */
 fun createPyramid(height: Int): String {
-    /**
-     *
-     */
     var pyramid = ""
 
     for (i in 1..height) {
@@ -151,10 +151,10 @@ fun ud2IterativasEj6() {
 
 /*Escribir un programa que muestre por pantalla la tabla de multiplicar del 1 al 10.*/
 
+/**
+ *
+ */
 fun showTable(table: Array<Int>) {
-    /**
-     *
-     */
     for (i in table.indices) {
         when (i + 1) {
             table.size -> print("${table[i]}.\n")
@@ -181,10 +181,10 @@ rectángulo como el de más abajo.
 7 5 3 1
 9 7 5 3 1*/
 
+/**
+ *
+ */
 fun createPyramLayerWithLambdaExpression(num: Int, operation: (Int) -> String): String {
-    /**
-     *
-     */
     return operation(num)
 }
 
@@ -201,10 +201,10 @@ val layerOfOddNums: (Int) -> String = {
 }
 
 
+/**
+ *
+ */
 fun createOddPyramid(num: Int): String {
-    /**
-     *
-     */
     var pyramid = ""
 
     for (i in 1..num) {
@@ -237,10 +237,10 @@ fun ud2IterativasEj8() {
 /*Escribir un programa que muestre el eco de tod-o lo que el usuario introduzca hasta que el usuario escriba
 “salir” que terminará.*/
 
+/**
+ *
+ */
 fun writeDown() {
-    /**
-     *
-     */
     println("Escribe lo que quieras, escribe salir para salir")
     var text = ""
 
@@ -262,10 +262,10 @@ fun ud2IterativasEj13() {
 /*Leer números enteros de teclado, hasta que el usuario ingrese el 0. Finalmente, mostrar la sumatoria
 de todos los números positivos ingresados.*/
 
+/**
+ *
+ */
 fun endlessNumberInput(cutCondition: Int): MutableList<Int> {
-    /**
-     *
-     */
     var num = -100
     val nums = mutableListOf<Int>()
 
@@ -287,10 +287,10 @@ fun endlessNumberInput(cutCondition: Int): MutableList<Int> {
 }
 
 
+/**
+ *
+ */
 fun summation (nums: MutableList<Int>): Int {
-    /**
-     *
-     */
     var summation = 0
 
     for (num in nums) {
@@ -311,18 +311,18 @@ fun ud2IterativasEj15() {
 imprimir la suma de los dígitos que lo componen. La condición de corte es que se ingrese el número -1.
 Al finalizar, mostrar cuántos de los números ingresados por el usuario fueron números pares.*/
 
+/**
+ *
+ */
 fun isEven (num: Int): Boolean {
-    /**
-     *
-     */
     return num % 2 == 0
 }
 
 
+/**
+ *
+ */
 fun countEvenNumbers (nums: MutableList<Int>): Int {
-    /**
-     *
-     */
     var evenNums = 0
 
     for (num in nums) {
@@ -350,10 +350,10 @@ se interrumpirá la impresión del menú y el programa finalizará.*/
 val myGrades = mutableListOf<Int>()
 
 
+/**
+ *
+ */
 fun showMenu() {
-    /**
-     *
-     */
     println("1 - Introduzca una nota")
     println("2 - Imprimir listado")
     println("3 - Finalizar programa")
@@ -376,18 +376,18 @@ fun showMenu() {
 }
 
 
-fun setNotas(grade: Int) {
-    /**
-     *
-     */
+/**
+ *
+ */
+fun setGrades(grade: Int) {
     myGrades.add(grade)
 }
 
 
-fun getNotas() {
-    /**
-     *
-     */
+/**
+ *
+ */
+fun getGrades() {
     print("Notas = ")
     for (grade in myGrades) {
         print("$grade - ")
@@ -396,10 +396,10 @@ fun getNotas() {
 }
 
 
+/**
+ *
+ */
 fun gradeInput(): Int {
-    /**
-     *
-     */
     var nota: Int
     do {
         print("Introduce una nota (0-10)")
@@ -409,17 +409,17 @@ fun gradeInput(): Int {
 }
 
 
+/**
+ *
+ */
 fun selectOption(option: Int) {
-    /**
-     *
-     */
     when (option) {
         1 -> {
-            setNotas(gradeInput())
+            setGrades(gradeInput())
             showMenu()
         }
         2 -> {
-            getNotas()
+            getGrades()
             showMenu()
         }
         3 -> println("Cerrando el programa...")
@@ -436,10 +436,10 @@ fun ud2IterativasEj19() {
 (en caso de haber más de una, mostrar la primera) y cuántas palabras había. Precondición:
 se tomará como separador de palabras al carácter “ “ (espacio), ya sea uno o más.*/
 
+/**
+ *
+ */
 fun modifyPhrase(phrase: String): List<String> {
-    /**
-     *
-     */
     val fraseModificada = phrase
         .replace(",", "")
         .replace(".", "")
@@ -455,10 +455,10 @@ fun modifyPhrase(phrase: String): List<String> {
     return fraseModificada
 }
 
+/**
+ *
+ */
 fun searchLongestWord(enlistedPhrase: List<String>): Pair<String, Int> {
-    /**
-     *
-     */
     var mayor = 0
     var longestWord = ""
 

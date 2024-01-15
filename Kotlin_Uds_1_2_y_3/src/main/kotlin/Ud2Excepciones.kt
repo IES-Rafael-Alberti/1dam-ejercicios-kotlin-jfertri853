@@ -1,6 +1,9 @@
 /*Escribir un programa que pida al usuario un número entero positivo y muestre por pantalla todos los
 números impares desde 1 hasta ese número separados por comas.*/
 
+/**
+ *
+ */
 fun oddString(num: Int): String {
     var oddNums = ""
     for (i in 1..num step 2) {
@@ -14,6 +17,9 @@ fun oddString(num: Int): String {
 }
 
 
+/**
+ *
+ */
 fun askForNumberV2(): Int {
     while (true) {
         try {
@@ -40,6 +46,9 @@ fun ud2ExcepcionesEj2() {
 /*Escribir un programa que pida al usuario un número entero positivo y muestre por pantalla la cuenta atrás
 desde ese número hasta cero separados por comas. Deberá solicitar el número hasta introducir uno correcto.*/
 
+/**
+ *
+ */
 fun countBackwards(num: Int): String {
     var myString = ""   // No sé como llamar a esta variable
     for (i in num downTo 0) {
