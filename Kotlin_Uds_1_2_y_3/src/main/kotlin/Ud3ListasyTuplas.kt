@@ -1,3 +1,7 @@
+import kotlin.math.abs
+import kotlin.math.pow
+
+
 /*Escribir un programa que pregunte al usuario los números ganadores de la lotería primitiva,
 los almacene en una lista y los muestre por pantalla ordenados de menor a mayor.*/
 
@@ -259,5 +263,146 @@ fun ud3ListasyTuplasEj9() {
 
     for (i in vowelCount) {
         println(i)
+    }
+}
+
+
+/*Escribir un programa que almacene en una lista los siguientes precios: 50, 75, 46, 22, 80, 65, 8
+y muestre por pantalla el menor y el mayor de los precios.*/
+
+fun orderNums(nums: Array<Int>, operation: (Array<Int>) -> Array<Int>): Array<Int> {
+    /**
+     *
+     */
+    return operation(nums)
+}
+
+
+fun showIntArray(myArray: Array<Int>) {
+    /**
+     *
+     */
+    for (element in myArray) {
+        print("$element, ")
+    }
+
+    println()
+}
+
+
+fun ud3ListasyTuplasEj10() {
+    val prices = arrayOf(50, 75, 46, 22 , 80, 65, 8)
+
+    val lowestToHighest: (Array<Int>) -> Array<Int> = {it.sortedArray()}
+    val highestToLowest: (Array<Int>) -> Array<Int> = {it.sortedArrayDescending()}
+
+    print("Precios ordenados de menor a mayor -> ")
+    showIntArray(orderNums(prices, lowestToHighest))
+
+    print("Precios ordenados de mayor a menor -> ")
+    showIntArray(orderNums(prices, highestToLowest))
+
+    val orderedPrices = orderNums(prices, lowestToHighest)
+    println("El precio más bajo es -> ${orderedPrices.first()}")
+    println("El precio más alto es -> ${orderedPrices.last()}")
+}
+
+
+/*Escribir un programa que pregunte por una muestra de números, separados por comas,
+los guarde en una lista y muestre por pantalla su media y desviación típica.*/
+
+fun askForDoubleList(): DoubleArray {
+    /**
+     *
+     */
+    val nums = arrayListOf<Double>()
+
+    print("Introduce numeros separados por coma: ")
+    val numsString = readln().replace(" ", "").split(",")
+
+    for (num in numsString) {
+        try {
+            nums.add(num.toDouble())
+        } catch (e: NumberFormatException) {
+            print("** ERROR ** - $num no puede ser convertido a Double\n")
+            Thread.sleep(1000)
+        }
+    }
+
+    return nums.toDoubleArray()
+}
+
+
+fun summation(nums: DoubleArray): Double {
+    /**
+     *
+     */
+    var summ = 0.0
+    for (num in nums) {
+        summ += num
+    }
+
+    return summ
+}
+
+
+fun calculateAverage(nums:DoubleArray): Double {
+    /**
+     *
+     */
+    return summation(nums) / nums.size
+}
+
+
+fun calculateDistanceBetweenNums(num: Double, average: Double): Double {
+    /**
+     *
+     */
+    return abs(average - num)
+}
+
+
+fun raiseDoubleToDouble(num: Double, raiseNum: Double): Double {
+    /**
+     *
+     */
+    return num.pow(raiseNum)
+}
+
+
+fun calculateStandardDeviation(nums: DoubleArray, average: Double): Double {
+    /**
+     *
+     */
+    val distances = DoubleArray(size = nums.size) {
+        raiseDoubleToDouble(calculateDistanceBetweenNums(nums[it], average), 2.0)
+    }
+
+    val summDistances = summation(distances)
+    val deviation = raiseDoubleToDouble((summDistances / distances.size), 0.5)
+    return deviation
+}
+
+
+fun showInfo(nums: DoubleArray, average: Double, deviation: Double) {
+    /**
+     *
+     */
+    println("Lista -> ${nums.joinToString()}")
+    println("MEDIA -> %.2f".format(average))
+    println("DESVIACIÓN TÍPICA -> %.2f".format(deviation))
+}
+
+
+fun ud3ListasyTuplasEj13() {
+    val numList = askForDoubleList()
+
+    if (numList.isNotEmpty()) {
+        val average = calculateAverage(numList)
+        val standardDeviation = calculateStandardDeviation(numList, average)
+
+        showInfo(numList, average, standardDeviation)
+    } else {
+        println("No has introducido ningún número")
     }
 }
