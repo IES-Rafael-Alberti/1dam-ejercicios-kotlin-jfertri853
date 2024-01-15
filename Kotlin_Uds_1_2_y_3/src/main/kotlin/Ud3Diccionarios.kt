@@ -8,6 +8,9 @@ Pera	0.85
 Naranja	0.70*/
 
 fun calculatePrice(fruits: Map<String, Double>, fruit: String, weight: Double): Any {
+    /**
+     *
+     */
     return if (fruit in fruits) {
         (fruits[fruit]!! * weight)
     } else {
@@ -26,7 +29,7 @@ fun ud3DiccionariosEj3() {
     val fruit = readln().lowercase()
 
     print("Cuántos kilos de $fruit quieres? ")
-    var kilograms = 1.0
+    var kilograms: Double
     try {
         kilograms = readln().toDouble()
         if (kilograms < 0.0) {

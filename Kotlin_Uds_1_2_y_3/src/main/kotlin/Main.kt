@@ -265,8 +265,8 @@ fun ud3ListasyTuplasSelection(option: Int) {
         6 -> ud3ListasyTuplasEj6()
         8 -> ud3ListasyTuplasEj8()
         9 -> ud3ListasyTuplasEj9()
-//        10 -> ud3ListasyTuplasEj10()
-//        13 -> ud3ListasyTuplasEj13()
+        10 -> ud3ListasyTuplasEj10()
+        13 -> ud3ListasyTuplasEj13()
         else -> println("\n\n")
     }
 
