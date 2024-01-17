@@ -47,7 +47,7 @@ fun ud1Option(option: Int) {
         4 -> ud1Ejercicio4()
         6 -> ud1Ejercicio6()
         12 -> ud1Ejercicio12()
-        15 -> ud1Ejercicio12()
+        15 -> ud1Ejercicio15()
         18 -> ud1Ejercicio18()
         20 -> ud1Ejercicio20()
         21 -> ud1Ejercicio21()

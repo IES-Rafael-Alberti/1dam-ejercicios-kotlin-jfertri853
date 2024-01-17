@@ -8,7 +8,9 @@ import java.math.RoundingMode
 
 
 /**
+ * Recibe un input y lo convierte a Dpuble
  *
+ * @return Double - numero introducido por el usuario
  */
 fun askForDouble(): Double {
     return readln().toDouble()
@@ -16,7 +18,11 @@ fun askForDouble(): Double {
 
 
 /**
+ * Redondea un numero con decimales para que solo tenga 2 decimales
  *
+ * @param num Double - numero decimal
+ *
+ * @return Double - numero redondeado a sus 2 primeros decimales
  */
 fun roundTo2Decimals(num: Double): Double {
     return BigDecimal(num).setScale(2, RoundingMode.HALF_UP).toDouble()
@@ -24,7 +30,11 @@ fun roundTo2Decimals(num: Double): Double {
 
 
 /**
+ * Transforma grados celsius a grados fahrenheit
  *
+ * @param celsius Double - grados celsius
+ *
+ * @return Double - grados fahrenheit
  */
 fun celsiusToFahrenheit(celsius: Double): Double {
     return (celsius * 1.8) + 32
@@ -48,7 +58,11 @@ const val VAT = 0.1
 
 
 /**
+ * Calcula el precio final de un producto al quitarle el IVA
  *
+ * @param amount Double - precio con IVA
+ *
+ * @return Double - precio sin IVA
  */
 fun calculateVATlessAmount(amount: Double): Double {
     return amount / (1 + VAT)
@@ -72,7 +86,12 @@ fun ud1Ejercicio6() {
 
 
 /**
+ * Eleva un numero a una potencia
  *
+ * @param num Double - numero a elevar
+ * @param exponent Int - potencia
+ *
+ * @return Double - numero elevado a la potencia
  */
 fun raiseTo(num: Double, exponent: Int): Double {
     var raisedNum = 1.0
@@ -84,7 +103,12 @@ fun raiseTo(num: Double, exponent: Int): Double {
 
 
 /**
+ * Calcula el Indice de Masa Corporal
  *
+ * @param weight Double - peso de la persona
+ * @param height Double - altura de la persona
+ *
+ * @return Double - Indice de Masa Corporal
  */
 fun calculateBMI(weight: Double, height: Double): Double {
     return weight / (raiseTo(height/100, 2))
@@ -117,7 +141,11 @@ const val INTEREST = 0.04
 
 
 /**
+ * Muestra el dinero obtenido cada año al introducir cierta cantidad de dinero
+ * al 4% de interes compuesto, durante cierta cantidad de años
  *
+ * @param initialCapital Double - Cantidad de dinero inicial
+ * @param years Int - Cantidad de años que se aplicará el interes
  */
 fun showMoneyAfterInterest(initialCapital: Double, years: Int) {
     var capital = initialCapital
@@ -148,7 +176,9 @@ fun ud1Ejercicio15() {
  */
 
 /**
+ * Pide una cadena de caracteres como input al usuario
  *
+ * @return String - la cadena de caracteres introducida por el usuario
  */
 fun askForString(): String {
     return readln()
@@ -156,7 +186,12 @@ fun askForString(): String {
 
 
 /**
+ * Recibe una frase y devuelve la misma frase pero con la primera
+ * letra de cada palabra en mayuscula y el resto en minuscula
  *
+ * @param initialPhrase String - frase inicial
+ *
+ * @return String - frase capitalizada
  */
 fun capitalize(initialPhrase: String): String {
     var finalPhrase = ""
@@ -187,7 +222,11 @@ fun ud1Ejercicio18() {
 
 
 /**
+ * Recibe un numero de telefono con prefijo y sufijo y devuelve el telefono aislado
  *
+ * @param phoneNumber String - numero de telefono con prefijo y sufijo
+ *
+ * @return String - numero de telefono aislado
  */
 fun isolatePhoneNumber(phoneNumber: String): String {
     return phoneNumber.split("-")[1]
@@ -217,15 +256,25 @@ fun ud1Ejercicio21() {
  * y después muestre por pantalla la misma frase pero con la vocal introducida en mayúscula.
  */
 
-val VOWELS = listOf('a', 'e', 'i', 'o', 'u')
+val VOWELS = listOf("a", "e", "i", "o", "u")
 
 
 fun ud1Ejercicio22() {
     print("Introduce una palabra: ")
     val word = askForString()
 
-    print("Introduce una vocal: ")
-    val vowel = askForString()
+    var vowel = ""
+    do {
+        print("Introduce una vocal: ")
+        try {
+            vowel = askForString().lowercase()
+            if (vowel !in VOWELS) {
+                throw IllegalArgumentException("A ti te parece que $vowel es una vocal!?")
+            }
+        } catch (e: IllegalArgumentException) {
+            println("** ERROR ** - $e")
+        }
+    } while (vowel !in VOWELS)
 
     println(word.replace(vowel, vowel.uppercase()))
 }
@@ -273,7 +322,9 @@ fun ud1Ejercicio26() {
  */
 
 /**
+ * Pide un input al usuario y lo transforma a un numero entero
  *
+ * @return Int - el numero entero introducido por el usuario
  */
 fun askForInt(): Int {
     return readln().toInt()
