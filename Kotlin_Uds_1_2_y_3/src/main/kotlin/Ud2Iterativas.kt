@@ -2,7 +2,13 @@
 (desde 1 hasta su edad).*/
 
 /**
+ * comprueba que una edad esté dentro de un rango y devuelve la edad si está o lanza una excepción si no
  *
+ * @param min Int - Valor mínimo que puede tener la edad
+ * @param max Int - Valor máximo que puede tener la edad
+ * @param age Int - La edad
+ *
+ * @return Int - La edad
  */
 fun verifyAge (min: Int, max: Int, age: Int): Int {
     when {
@@ -14,7 +20,9 @@ fun verifyAge (min: Int, max: Int, age: Int): Int {
 
 
 /**
+ * Pide un numero al usuario, lo convierte a entero y lo devuelve
  *
+ * @return Int - el numero introducido por el usuario
  */
 fun askForNumber (): Int {
     print(": ")
@@ -23,7 +31,9 @@ fun askForNumber (): Int {
 
 
 /**
+ * Recibe una edad y muestra todos los numeros desde el 1 hasta el recibido separados por guión
  *
+ * @param age Int - La edad del usuario
  */
 fun ageCount(age: Int) {
     val count = Array(size = age + 1){it}
@@ -58,7 +68,11 @@ fun ud2IterativasEj2() {
 desde ese número hasta cero separados por comas.*/
 
 /**
+ * Comprueba si un numero es positivo
  *
+ * @param number Int - Un numero
+ *
+ * @return Boolean - Devuelve verdadero si el numero es positivo o falso si no lo es
  */
 fun isPositive(number: Int): Boolean {
     return number >= 0
@@ -66,9 +80,16 @@ fun isPositive(number: Int): Boolean {
 
 
 /**
+ * Recibe un numero y muestra todos los numeros desde el recibido hasta 0 separados por coma
  *
+ * @param number Int - Un numero positivo
  */
 fun countdown(number: Int) {
+
+    if (!isPositive(number)) {
+        throw NumberFormatException("No se como pero has metido un numero negativo")
+    }
+
     val count = Array(size = number + 1){number - it}
     for (i in count.indices) {
         when (count[i]) {
@@ -76,6 +97,7 @@ fun countdown(number: Int) {
             else -> print("${count[i]}, ")
         }
     }
+
 }
 
 
@@ -92,7 +114,13 @@ fun ud2IterativasEj4() {
         }
     } while (!isPositive(num))
 
-    countdown(num)
+    try {
+        countdown(num)
+    } catch (e: NumberFormatException) {
+        println("** ERROR ** - $e")
+        println("Este texto no debería mostrarse nunca")
+    }
+
 }
 
 
@@ -104,7 +132,11 @@ el de más abajo, de altura el número introducido.
 **** */
 
 /**
+ * Recibe un numero y devuelve una cadena con tantos astericos como el numero recibido
  *
+ * @param layerNum Int - Cantidad de asteriscos
+ *
+ * @return String - Cadena de asteriscos
  */
 fun createPyramidLayer(layerNum: Int): String {
     var layer = ""
@@ -118,7 +150,11 @@ fun createPyramidLayer(layerNum: Int): String {
 
 
 /**
+ * Devuelve una piramide  de asteriscos con la cantidad de capas introducidas por parámetro
  *
+ * @param height Int - Cantidad de capas de la pirámida
+ *
+ * @return String - Cadena formando una pirámide de asteriscos
  */
 fun createPyramid(height: Int): String {
     var pyramid = ""
@@ -152,7 +188,9 @@ fun ud2IterativasEj6() {
 /*Escribir un programa que muestre por pantalla la tabla de multiplicar del 1 al 10.*/
 
 /**
+ * Recibe una lista conteniendo la tabla de multiplicar de un numero y la devuelve separada por comas
  *
+ * @param table Array<Int> - Tabla de multiplicar de algún numero
  */
 fun showTable(table: Array<Int>) {
     for (i in table.indices) {
@@ -167,7 +205,7 @@ fun showTable(table: Array<Int>) {
 fun ud2IterativasEj7() {
     for (num in 1..10) {
         print("Tabla del $num -> ")
-        val table = Array(size = 10){num * (it + 1)}
+        val table = Array(size = 10){num * (it + 1)} // Recibe un numero y devuelve su tabla de multiplicar
         showTable(table)
     }
 }
@@ -182,13 +220,21 @@ rectángulo como el de más abajo.
 9 7 5 3 1*/
 
 /**
+ * Devuelve una cadena con tantos numeros impares descendentes como la cantidad recibida por parámetro
  *
+ * @param num Int - Numero pasado por parametro
+ * @param operation function - Una funcion que decide que operación se le aplica al numero
+ *
+ * @return String - El valor de operation aplicado a num
  */
 fun createPyramLayerWithLambdaExpression(num: Int, operation: (Int) -> String): String {
     return operation(num)
 }
 
 
+/**
+ *  Una cadena con tantos numeros impares descendentes como la cantidad recibida por parámetro
+ */
 val layerOfOddNums: (Int) -> String = {
     buildString {
         var oddNum = (it * 2) -1
@@ -202,7 +248,11 @@ val layerOfOddNums: (Int) -> String = {
 
 
 /**
+ * Devuelve una cadena de numeros impares descendentes con tantas capas como reciba por parámetro
  *
+ * @param num Int - Cantidad de capas de la pirámida
+ *
+ * @return String - Pirámide de números impares descendentes
  */
 fun createOddPyramid(num: Int): String {
     var pyramid = ""
@@ -238,7 +288,8 @@ fun ud2IterativasEj8() {
 “salir” que terminará.*/
 
 /**
- *
+ * Pide al usuario que introduzca texto y mostrará cada vez que pulsa Enter o finalizará si el usuario
+ * introduce "salir"
  */
 fun writeDown() {
     println("Escribe lo que quieras, escribe salir para salir")
@@ -263,7 +314,12 @@ fun ud2IterativasEj13() {
 de todos los números positivos ingresados.*/
 
 /**
+ * Deja que el usuario introduzca cualquier numero hasta que el numero se igual a la condición de corte,
+ * devuelve solamente los numeros positivos introducidos
  *
+ * @param cutCondition Int - Condición de corte, cuando el usuario la introduce se devuelve la lista de numeros
+ *
+ * @return MutableList<Int> - Lista de todos los números positivos introducidos por el usuario
  */
 fun endlessNumberInput(cutCondition: Int): MutableList<Int> {
     var num = -100
@@ -288,7 +344,11 @@ fun endlessNumberInput(cutCondition: Int): MutableList<Int> {
 
 
 /**
+ * Calcula el sumatorio de una lista de números
  *
+ * @param nums MutableList<Int> - Lista de números
+ *
+ * @return Int - Sumatorio de la lista
  */
 fun summation (nums: MutableList<Int>): Int {
     var summation = 0
@@ -312,7 +372,11 @@ imprimir la suma de los dígitos que lo componen. La condición de corte es que 
 Al finalizar, mostrar cuántos de los números ingresados por el usuario fueron números pares.*/
 
 /**
+ * Comprueba si un número es par
  *
+ * @param num Int - Número a comprobar
+ *
+ * @return Boolean - Si el número es par o no
  */
 fun isEven (num: Int): Boolean {
     return num % 2 == 0
@@ -320,7 +384,11 @@ fun isEven (num: Int): Boolean {
 
 
 /**
+ * Cuenta cuántos números pares hay en una lista
  *
+ * @param nums MutableList<Int> - Lista de números pares e impares
+ *
+ * @return Int - Cantidad de números pares que hay en la lista
  */
 fun countEvenNumbers (nums: MutableList<Int>): Int {
     var evenNums = 0
@@ -347,11 +415,12 @@ informarle del error. El menú se debe volver a mostrar luego de ejecutada cada 
 Si elige las opciones 1 ó 2 se imprimirá un texto. Si elige la opción 3,
 se interrumpirá la impresión del menú y el programa finalizará.*/
 
-val myGrades = mutableListOf<Int>()
+var myGrades = mutableListOf<Int>()
 
 
 /**
- *
+ * Muestra un menú de opciones y pide al usuario que escoja una.
+ * Se ejecutan diferentes funciones según lo que escoja el usuario
  */
 fun showMenu() {
     println("1 - Introduzca una nota")
@@ -377,7 +446,9 @@ fun showMenu() {
 
 
 /**
+ * Añade una nota a una variable de orden superior
  *
+ * @param grade Int - Una nota pasada como parámetro
  */
 fun setGrades(grade: Int) {
     myGrades.add(grade)
@@ -385,7 +456,7 @@ fun setGrades(grade: Int) {
 
 
 /**
- *
+ * Imprime la lista de notas guardadas en una variable de orden superior separando cada nota por un guión
  */
 fun getGrades() {
     print("Notas = ")
@@ -397,7 +468,9 @@ fun getGrades() {
 
 
 /**
+ * Pide una nota y solo se devuelve cuando está entre 0 y 10
  *
+ * @return Int - La nota introducida por el usuario
  */
 fun gradeInput(): Int {
     var nota: Int
@@ -410,7 +483,9 @@ fun gradeInput(): Int {
 
 
 /**
+ * Recibe un numero que corresponde con una opción de un menú y ejecuta un código diferente según la opción
  *
+ * @param option Int - La opción elegida por el usuario
  */
 fun selectOption(option: Int) {
     when (option) {
@@ -437,7 +512,11 @@ fun ud2IterativasEj19() {
 se tomará como separador de palabras al carácter “ “ (espacio), ya sea uno o más.*/
 
 /**
+ * Recibe una frase y la divide por palabras tomando como separador los espacios en blanco
  *
+ * @param phrase String - Una frase
+ *
+ * @return List<String> - Una lista donde cada elemento corresponde a cada palabra de la frase
  */
 fun modifyPhrase(phrase: String): List<String> {
     val fraseModificada = phrase
@@ -456,7 +535,12 @@ fun modifyPhrase(phrase: String): List<String> {
 }
 
 /**
+ * Recibe una lista de palabras y devuelve cuál es más larga y cuántos caracteres tiene.
+ * En caso de haber 2 iguales devuelve la primera
  *
+ * @param enlistedPhrase List<String> - Lista de palabras
+ *
+ * @return Pair<String, Int> La palabra más larga y su cantidad de caracteres
  */
 fun searchLongestWord(enlistedPhrase: List<String>): Pair<String, Int> {
     var mayor = 0

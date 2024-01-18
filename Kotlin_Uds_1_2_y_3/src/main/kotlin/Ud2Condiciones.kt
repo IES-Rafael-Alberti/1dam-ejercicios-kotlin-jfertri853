@@ -4,7 +4,9 @@ introducida por el usuario coincide con la guardada en la variable sin tener en 
 mayúsculas y minúsculas. */
 
 /**
+ * Pide al usuario que introduzca una contraseña y la devuelve
  *
+ * @return String - la contraseña introducida por el usuario
  */
 fun insertPassword (): String {
     print("Introduce su contraseña: ")
@@ -13,10 +15,12 @@ fun insertPassword (): String {
 
 
 /**
+ * Comprueba si el parámetro es true o false e imprime la frase correspondiente
  *
+ * @param acces Boolean - el acceso válido o inválido del usuario
  */
-fun verifyLogin (acceso: Boolean) {
-    if (acceso) {
+fun verifyLogin (acces: Boolean) {
+    if (acces) {
         println("Contraseña correcta, puedes entrar")
     } else {
         println("Contraseña incorrecta")
@@ -25,7 +29,12 @@ fun verifyLogin (acceso: Boolean) {
 
 
 /**
+ * Comprueba si 2 cadenas son iguales (ignorando si los caracteres están en mayúscula o minúscula)
  *
+ * @param verifiedPass String - Una contraseña guardada
+ * @param insertedPass String - Una contraseña insertada por el usuario
+ *
+ * @return Boolean - el resultado de comparar los 2 parámetros
  */
 fun compareTwoStrings(verifiedPass: String, insertedPass: String): Boolean {
     return (verifiedPass.uppercase() == insertedPass.uppercase())
@@ -42,7 +51,12 @@ fun ud2CondicionesEj2 () {
 Si el divisor es cero el programa debe mostrar un error. */
 
 /**
+ * Divide un numero entre otro y devuelve el resultado o un nulo si el divisor es 0
  *
+ * @param dividend Double - numero que va a ser dividido
+ * @param divider Double - numero entre el que se divide el dividendo
+ *
+ * @return Double? - resultado de dividir el dividendo entre el divisor
  */
 fun divide (dividend: Double, divider: Double): Double? {
     if (divider == 0.0) {
@@ -55,7 +69,9 @@ fun divide (dividend: Double, divider: Double): Double? {
 
 
 /**
+ * Pide un dividendo y un divisor, crea una lista con los parámetros de una división y devuelve la lista
  *
+ * @return DoubleArray - Los parámetros de una división dentro de una lista
  */
 fun createDivision (): DoubleArray {
     print("Introduce el dividendo: ")
@@ -81,7 +97,9 @@ Escribir un programa que pregunte al usuario su nombre y sexo,
 y muestre por pantalla el grupo que le corresponde. */
 
 /**
+ * Pide el nombre y el género de un alumno y los devuelve dentro de una lista
  *
+ * @return List<String> - La lista que guarda el nombre y el género de un alumno
  */
 fun fillOutStudentForm (): List<String> {
     print("Introduce el nombre del alumno: ")
@@ -100,7 +118,12 @@ fun fillOutStudentForm (): List<String> {
 
 
 /**
+ * Recibe un nombre y un género de un alumno y devuelve el grupo de clase en el que entraría dicho alumno
  *
+ * @param name String - El nombre del alumno
+ * @param gender String - El género del alumno
+ *
+ * @return String - El grupo al que pertenece el alumno
  */
 fun assignToGroup(name: String, gender: String): String {
     val group = if ((name[0].uppercase() < "M" && gender == "F") || (name[0].uppercase() > "N" && gender == "M")) {
@@ -114,7 +137,12 @@ fun assignToGroup(name: String, gender: String): String {
 
 
 /**
+ * Muestra la información del alumno y el grupo al que pertenece,
+ * imprime diferentes cadenas según el género del alumno
  *
+ * @param name String - El nombre del alumno
+ * @param gender String - El género del alumno
+ * @param group String - El grupo al que pertenece el alumno
  */
 fun showStudentAndGroup(name: String, gender:String, group:String) {
     if (gender == "F") {
@@ -148,7 +176,9 @@ Escribir un programa que lea la puntuación del usuario e indique su nivel de re
 así como la cantidad de dinero que recibirá el usuario. */
 
 /**
+ * Pregunta la puntuación de un empleado y si está dentro de las puntuaciones posibles la devuelve
  *
+ * @return Double - La puntuación del empleado
  */
 fun askForEmployeeScore (): Double {
     print("Introduce la puntuación del empleado: ")
@@ -165,7 +195,11 @@ fun askForEmployeeScore (): Double {
 
 
 /**
+ * Recibe una puntuación y devuelve cuál ha sido el rendimiento del empleado según la puntuación
  *
+ * @param score Double - Puntuación del empleado
+ *
+ * @return String - Rendimiento del empleado
  */
 fun calculateEmployeePerformance (score: Double): String {
     val performance = when {
@@ -180,7 +214,11 @@ fun calculateEmployeePerformance (score: Double): String {
 
 
 /**
+ * Recibe una puntuación y devuelve cuanta paga extra le corresponde al empleado según la puntuación
  *
+ * @param score Double - Puntuación del empleado
+ *
+ * @return String - Paga extra del empleado
  */
 fun calculateBonusPayment (score: Double): String {
     return "%.2f".format(score * 2400.0)
@@ -206,7 +244,10 @@ Solo se puede eligir un ingrediente además de la mozzarella y el tomate que est
 Al final se debe mostrar por pantalla si la pizza elegida es vegetariana o no y todos los ingredientes que lleva.*/
 
 /**
+ * Muestra el tipo de la pizza y sus ingredientes
  *
+ * @param type String - Tipo de pizza
+ * @param pizza List<String> - Lista de ingredientes de la pizza
  */
 fun printTicket (type: String, pizza: List<String>) {
     print("Su pizza ${type.lowercase()} de ")
@@ -221,7 +262,11 @@ fun printTicket (type: String, pizza: List<String>) {
 
 
 /**
+ * Devuelve la lista de ingredientes de la pizza
  *
+ * @param ingredient String - Ingrediente elegido por el usuario
+ *
+ * @return List<String> - Lista de ingredientes que lleva la pizza
  */
 fun createPizza (ingredient: String): List<String> {
     return listOf("tomate", "mozzarella", ingredient)
@@ -229,7 +274,11 @@ fun createPizza (ingredient: String): List<String> {
 
 
 /**
+ * Devuelve una lista de posibles ingredientes según el tipo de pizza recibido
  *
+ * @param pizzaType String - Tipo de pizza
+ *
+ * @return List<String> - Lista de ingredientes posibles para el tipo de pizza seleccionado
  */
 fun selectIngredientList (pizzaType: String): List<String> {
     val ingredients = if (pizzaType == "VEGETAL") {
@@ -243,7 +292,11 @@ fun selectIngredientList (pizzaType: String): List<String> {
 
 
 /**
+ * Recibe una lista de ingredientes y pide al usuario que escoja uno para su pizza
  *
+ * @param ingredients List<String> - La lista con todos los ingredientes que puede elegir el usuario
+ *
+ * @return String - El ingrediente elegido por el usuario
  */
 fun chooseIngredients (ingredients: List<String>): String {
     println("Elige el ingrediente de tu pizza")
@@ -264,7 +317,10 @@ fun chooseIngredients (ingredients: List<String>): String {
 
 
 /**
+ * Pide al usuario que elija el tipo de pizza (vegetal o con carne), una vez el usuario introduce un tipo
+ * de pizza válido lo devuelve como cadena de caracteres
  *
+ * @return String - El tipo de pizza escogido por el usuario
  */
 fun choosePizzaType (): String {
     print("pizza vegetal o con carne? ")

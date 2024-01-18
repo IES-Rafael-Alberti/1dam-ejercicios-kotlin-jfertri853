@@ -1,6 +1,4 @@
-/*Este menú es temporal, evidentemente este código se puede mejorar muchísimo pero me está
- costando programar en Kotlin y quería tener el menú hecho rápido sin comerme mucho la cabeza.
- Ah y además esto está fuera de plazo, lo voy a subir igual aunque no cuente para la nota*/
+/*Menú Temporal*/
 
 
 fun showCompleteMenu() {
